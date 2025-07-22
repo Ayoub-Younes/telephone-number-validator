@@ -10,59 +10,86 @@
 }
 
 html {
-background: linear-gradient(#bbbabd, #282527);
-height: 100%;
 font-family: "Arcade Regular", cursive;
 font-weight: 2em;
 font-size: 20px;
 }
 
 body {
-  margin: 0 auto;
-  width: 220px;
-  height: 500px;
-  background-image: url('imgs/background.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  margin: 0;
   padding: 0;
-  text-align: center;
-  
-}
-
-.container{
-  display: relative;
-  flex-wrap: wrap;
-  width:100%;
-  max-height: 100%;
-  margin: 0 auto;
-}
-
-.container img{
-  width: 100px;
-  height: auto;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.container h2, p {
-  margin: 5px auto ;
-  width: 100%;
-  height: 30%;
-  word-wrap: break-word;
-  font-size: 20px;
-}
-
-
-.checker-container{
-  margin: 30px 15px;
   display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #f5f5f5;
 }
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 360px;
+  height: 640px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
+}
+
+.wrapper:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+.wrapper:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  margin: 0.5em auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.input-container h2, p {
+  text-align: center;
+  margin: 0 auto ;
+  width: 100%;
+  word-wrap: break-word;
+  font-size: 1.5em;
+}
+
+.input-container p {
+  font-size: 1em;
+}
+
 #user-input {
   width: 80%;
-  height: 5px;
   margin: 0 auto;
   padding: 15px 5px 10px 5px;
   border: 2px solid rgb(69, 69, 69);
@@ -71,8 +98,9 @@ body {
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-family: "Arcade Regular", cursive;
-  font-size: 20px;
-  font-weight: 1em;
+  font-size: 1.2em;
+  border-radius: 10px;
+  text-align: center;
 }
 
 #user-input:focus {
@@ -80,29 +108,69 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
+#results-div{
+  display: flex;
+  width:  80%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.2em;
+  overflow: auto;
+  padding: 0px 0px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.dial-pad {
+  width: 90%;
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.dial-pad button {
+  font-size: 1.2em;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dial-pad button:hover {
+  background-color: #ccc;
+}
+
+
+.checker-container{
+  position: absolute;
+  bottom: -50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
 #check-btn , #clear-btn{
-  width:  50px;
-  height: 25px;
-  margin: 0px 0px;
+  position: relative;
+  width: 75px;
+  font-size: 1.1em;
+  padding: 0.4em;
+  margin: 0px 5px;
   font-family: "Arcade Regular", cursive;
   border-radius: 20px;
   background-color:rgb(29,29,29,0.7);
-  color: #ffffff;
+  color: #e8f0ff;
   cursor: pointer;
-
 }
 
 #check-btn:hover {
   opacity: 1;
 }
-
-#results-div{
-  /*display: none;*/
-  width:  80%;
-  height: 40px;
-  overflow: auto;
-  padding: 0px 0px;
-  margin: 20px auto;
-  color:white;
-}
-
